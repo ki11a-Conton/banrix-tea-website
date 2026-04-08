@@ -9,25 +9,25 @@ import { useCartStore } from '../store';
    ======================================== */
 const FEATURED_ITEMS = [
   {
-    id: 1, name: '多肉葡萄', price: 22, image: '/images/product-1.jpg',
+    id: 1, name: '多肉葡萄', price: 22, image: `${window.__BASE_URL__}images/product-1.jpg`,
     sizes: ['中杯 500ml', '大杯 700ml'],
     sweetness: ['正常糖', '少甜', '三分甜', '零卡糖'],
     ice: ['正常冰', '少冰', '去冰', '常温'],
   },
   {
-    id: 2, name: '烤黑糖波波牛乳', price: 28, image: '/images/product-2.jpg',
+    id: 2, name: '烤黑糖波波牛乳', price: 28, image: `${window.__BASE_URL__}images/product-2.jpg`,
     sizes: ['中杯 500ml', '大杯 700ml'],
     sweetness: ['正常糖', '少甜', '三分甜', '零卡糖'],
     ice: ['正常冰', '少冰', '去冰', '常温'],
   },
   {
-    id: 3, name: '生打椰椰芒芒', price: 25, image: '/images/product-3.jpg',
+    id: 3, name: '生打椰椰芒芒', price: 25, image: `${window.__BASE_URL__}images/product-3.jpg`,
     sizes: ['中杯 500ml', '大杯 700ml'],
     sweetness: ['正常糖', '少甜', '三分甜', '零卡糖'],
     ice: ['正常冰', '少冰', '去冰', '常温'],
   },
   {
-    id: 4, name: '轻乳茶·茉莉', price: 26, image: '/images/product-4.jpg',
+    id: 4, name: '轻乳茶·茉莉', price: 26, image: `${window.__BASE_URL__}images/product-4.jpg`,
     sizes: ['中杯 500ml', '大杯 700ml'],
     sweetness: ['正常糖', '少甜', '三分甜', '零卡糖'],
     ice: ['正常冰', '少冰', '去冰'],
@@ -212,7 +212,7 @@ export default function Home() {
             transition={{ duration: 1.2, delay: 0.3, ease: 'easeOut' }}
           >
             <img
-              src="/images/product-1.jpg"
+              src={`${window.__BASE_URL__}images/product-1.jpg`}
               alt="半日闲招牌茶饮"
               className="w-[85%] md:w-[75%] object-cover rounded-[8px] shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
               style={{ transform: 'translateY(-5%)' }}
@@ -271,7 +271,7 @@ export default function Home() {
               viewport={{ once: true, margin: '-80px' }}
             >
               <img
-                src="/images/product-3.jpg"
+                src={`${window.__BASE_URL__}images/product-3.jpg`}
                 alt="品牌故事"
                 className="w-full object-cover rounded-[8px] shadow-[0_16px_48px_rgba(0,0,0,0.06)]"
               />

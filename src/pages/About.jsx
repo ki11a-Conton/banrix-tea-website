@@ -40,7 +40,7 @@ export default function About() {
       {/* ==================== Hero ==================== */}
       <section className="relative h-[70vh] min-h-[480px] overflow-hidden bg-[#f5f0eb]">
         <img
-          src="/images/product-3.jpg"
+          src={`${window.__BASE_URL__}images/product-3.jpg`}
           alt="半日闲茶饮"
           className="absolute inset-0 w-full h-full object-cover"
         />

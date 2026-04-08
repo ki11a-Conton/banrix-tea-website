@@ -471,7 +471,7 @@ export default function ProductManagement() {
                     type="text"
                     value={form.image}
                     onChange={(e) => handleFormChange('image', e.target.value)}
-                    placeholder="/images/product-1.jpg"
+                    placeholder={`${window.__BASE_URL__}images/product-1.jpg`}
                     className={inputClass}
                     style={inputStyle}
                     onFocus={(e) => { e.target.style.borderColor = '#1a1a1a'; }}
