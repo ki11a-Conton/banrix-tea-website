@@ -44,12 +44,12 @@ const Products = () => {
 
       {/* Filter Tabs */}
       <section className="sticky top-16 md:top-20 z-30 bg-white/95 backdrop-blur-md border-b border-border/50">
-        <div className="flex justify-center gap-1 py-4">
+        <div className="flex justify-start md:justify-center gap-1 py-4 px-6 md:px-0 overflow-x-auto scrollbar-hide">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => handleCategoryChange(category.id)}
-              className={`px-6 py-2.5 text-sm tracking-[0.15em] uppercase transition-all duration-300 border-b-2 ${
+              className={`px-6 py-2.5 text-sm tracking-[0.15em] uppercase transition-all duration-300 border-b-2 whitespace-nowrap ${
                 selectedCategory === category.id
                   ? 'text-primary border-primary'
                   : 'text-muted border-transparent hover:text-primary'

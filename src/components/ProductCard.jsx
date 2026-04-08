@@ -41,15 +41,15 @@ export default function ProductCard({ product }) {
         </div>
 
         {/* Info */}
-        <div className="p-5">
-          <h3 className="text-base font-medium text-primary tracking-wide">
+        <div className="p-3 md:p-5">
+          <h3 className="text-sm md:text-base font-medium text-primary tracking-wide">
             {product.name}
           </h3>
-          <p className="text-xs text-muted mt-1 tracking-wider">
+          <p className="text-[10px] md:text-xs text-muted mt-1 tracking-wider">
             {product.nameEn}
           </p>
-          <div className="flex justify-between items-center mt-4">
-            <span className="text-accent font-medium">&yen;{product.price}</span>
+          <div className="flex justify-between items-center mt-3 md:mt-4">
+            <span className="text-accent font-medium text-sm md:text-base">&yen;{product.price}</span>
             <ArrowUpRight
               size={16}
               strokeWidth={1.5}

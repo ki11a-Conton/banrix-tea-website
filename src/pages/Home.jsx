@@ -147,10 +147,10 @@ export default function Home() {
         className="relative h-screen overflow-hidden bg-[#F5F3F0]"
         aria-label="首屏"
       >
-        <div className="relative z-10 h-full max-w-[1400px] mx-auto px-8 md:px-12 flex items-center">
-          {/* Left — Brand text grid (40%) */}
+        <div className="relative z-10 h-full max-w-[1400px] mx-auto px-8 md:px-12 flex flex-col md:flex-row items-center">
+          {/* Left — Brand text grid */}
           <motion.div
-            className="w-[40%] flex flex-col justify-center"
+            className="w-full md:w-[40%] flex flex-col justify-center pt-20 md:pt-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, ease: 'easeOut' }}
@@ -204,9 +204,9 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Right — Product image (60%) */}
+          {/* Right — Product image */}
           <motion.div
-            className="w-[60%] flex items-center justify-center"
+            className="w-full md:w-[60%] flex items-center justify-center order-first md:order-last"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.3, ease: 'easeOut' }}
@@ -214,7 +214,7 @@ export default function Home() {
             <img
               src={`${window.__BASE_URL__}images/product-1.jpg`}
               alt="半日闲招牌茶饮"
-              className="w-[85%] md:w-[75%] object-cover rounded-[8px] shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
+              className="w-[70%] md:w-[75%] object-cover rounded-[8px] shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
               style={{ transform: 'translateY(-5%)' }}
             />
           </motion.div>
