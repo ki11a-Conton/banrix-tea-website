@@ -1,0 +1,430 @@
+@import "tailwindcss";
+
+/* ========================================
+   Design Tokens → Tailwind v4 Theme
+   配色：主色 #C4A882 奶茶米白 / 辅色 #8B9E7E 抹茶绿 / 背景 #F5F3F0 暖白
+   字体：Noto Sans SC + Noto Serif SC + Montserrat
+   风格：喜茶 Heytea 高级极简
+   ======================================== */
+@theme {
+  /* ---- 配色 ---- */
+  --color-primary: #C4A882;
+  --color-primary-hover: #B39770;
+  --color-secondary: #8B9E7E;
+  --color-secondary-hover: #7A8D6F;
+  --color-bg: #F5F3F0;
+  --color-card: #FFFFFF;
+  --color-divider: #E8E4DF;
+  --color-text: #1A1A1A;
+  --color-text-secondary: #888888;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  /* ---- 字体 ---- */
+  --font-sans: "Noto Sans SC", "Montserrat", system-ui, -apple-system, "PingFang SC", sans-serif;
+
+  /* ---- 衬线字体（标题/品牌） ---- */
+  --font-serif: "Noto Serif SC", serif;
+
+  /* ---- 展示字体（英文/数字） ---- */
+  --font-display: "Montserrat", "Noto Sans SC", sans-serif;
+
+  /* ---- 字重（更轻盈，喜茶风格） ---- */
+  --font-weight-normal: 300;
+  --font-weight-bold: 500;
+
+  /* ---- 行高（更宽松） ---- */
+  --leading-normal: 1.8;
+
+  /* ---- 字间距 ---- */
+  --tracking-normal: 0.04em;
+
+  /* ---- 间距（4px 基准网格） ---- */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+
+  /* ---- 圆角（更小更几何） ---- */
+  --radius-card: 8px;
+
+  /* ---- 阴影（更柔和更微妙） ---- */
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  --shadow-card-hover: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+/* ========================================
+   Base Styles
+   ======================================== */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--leading-normal);
+    letter-spacing: 0.02em;
+    color: var(--color-text);
+    background-color: #F5F3F0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.4;
+    letter-spacing: 0.06em;
+  }
+
+  ::selection {
+    background-color: rgba(196, 168, 130, 0.3);
+    color: var(--color-text);
+  }
+
+  img {
+    transition: opacity 0.6s ease;
+  }
+}
+
+/* ========================================
+   Component Classes
+   ======================================== */
+@layer components {
+
+  /* ---- 按钮组件示例 ---- */
+
+  /* 主要按钮：主色背景 + 白色文字 */
+  .btn-primary {
+    @apply inline-flex items-center justify-center
+           bg-primary text-white
+           font-medium
+           px-6 py-3
+           rounded-[6px]
+           tracking-normal
+           transition-all duration-300
+           cursor-pointer
+           hover:bg-primary-hover
+           active:scale-[0.98];
+  }
+
+  /* 次要按钮：抹茶绿背景 + 白色文字 */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center
+           bg-secondary text-white
+           font-medium
+           px-6 py-3
+           rounded-[6px]
+           tracking-normal
+           transition-all duration-300
+           cursor-pointer
+           hover:bg-secondary-hover
+           active:scale-[0.98];
+  }
+
+  /* 轮廓按钮：透明背景 + 主色边框 */
+  .btn-outline {
+    @apply inline-flex items-center justify-center
+           bg-transparent text-primary
+           font-medium
+           px-6 py-3
+           rounded-[6px]
+           border-2 border-primary
+           tracking-normal
+           transition-all duration-300
+           cursor-pointer
+           hover:bg-primary hover:text-white
+           active:scale-[0.98];
+  }
+
+  /* ---- 通用组件 ---- */
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-serif font-light tracking-[0.06em] text-text;
+  }
+
+  .section-subtitle {
+    @apply text-sm text-text-secondary tracking-[0.15em] uppercase;
+  }
+
+  .card {
+    @apply bg-white rounded-[8px] p-8 shadow-card;
+  }
+}
+
+/* ========================================
+   Custom Scrollbar (Webkit)
+   ======================================== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-divider);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-divider) var(--color-bg);
+}
+
+/* ========================================
+   Animation: Ripple Button
+   ======================================== */
+@layer components {
+  .ripple-btn {
+    @apply relative inline-flex items-center justify-center
+           font-bold px-6 py-3 rounded-card
+           tracking-normal transition-all duration-200
+           cursor-pointer overflow-hidden;
+  }
+
+  .ripple-btn-primary {
+    @apply bg-primary text-white shadow-card
+           hover:bg-primary-hover hover:shadow-card-hover
+           active:scale-[0.98];
+  }
+
+  .ripple-btn-secondary {
+    @apply bg-secondary text-text shadow-card
+           hover:bg-secondary-hover hover:shadow-card-hover
+           active:scale-[0.98];
+  }
+
+  .ripple-btn-outline {
+    @apply bg-transparent text-primary border-2 border-primary
+           hover:bg-primary hover:text-white
+           active:scale-[0.98];
+  }
+
+  .ripple-btn-disabled {
+    @apply opacity-40 cursor-not-allowed pointer-events-none;
+  }
+}
+
+/* 涟漪伪元素动画 */
+@keyframes ripple-expand {
+  0% {
+    transform: scale(0);
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: ripple-expand 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+/* ========================================
+   Animation: Toast
+   ======================================== */
+@layer components {
+  .toast-container {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 8px;
+    pointer-events: none;
+  }
+
+  .toast-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background: var(--color-text);
+    color: var(--color-white);
+    border-radius: var(--radius-card);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    pointer-events: auto;
+    animation: toast-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .toast-item-exit {
+    animation: toast-out 0.3s ease-in forwards;
+  }
+
+  .toast-item-text {
+    line-height: 1;
+  }
+
+  .toast-item-close {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    cursor: pointer;
+    padding: 2px;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .toast-item-close:hover {
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toast-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.95);
+  }
+}
+
+/* ========================================
+   Animation: HoverImage
+   ======================================== */
+@layer components {
+  .hover-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-card);
+    background: var(--color-card);
+  }
+
+  .hover-image-inner {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hover-image-src {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* hover: scale(1.05) */
+  .hover-image-wrapper:hover .hover-image-src,
+  .hover-image-inner:hover .hover-image-src {
+    transform: scale(1.05);
+  }
+
+  /* hover: 底部半透明渐变遮罩 */
+  .hover-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0) 50%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .hover-image-wrapper:hover .hover-image-overlay,
+  .hover-image-inner:hover .hover-image-overlay {
+    opacity: 1;
+  }
+
+  /* hover: 内容插槽 */
+  .hover-image-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 16px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+
+  .hover-image-wrapper:hover .hover-image-content,
+  .hover-image-inner:hover .hover-image-content {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+/* ========================================
+   prefers-reduced-motion 降级
+   禁用所有动画和过渡，保持内容可访问
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .ripple-effect {
+    display: none !important;
+  }
+
+  .hover-image-src {
+    transform: none !important;
+  }
+
+  .hover-image-overlay {
+    opacity: 0 !important;
+  }
+
+  .hover-image-content {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+}
